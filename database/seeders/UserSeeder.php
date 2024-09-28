@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Faker\Factory as Faker;
+use Illuminate\Support\Carbon;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
 {
@@ -14,15 +16,48 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $faker = Faker::create();       // Faker create random data for insert on DB table;
-        for( $i=1; $i <=5; $i++){
-            $user = new User;
-            $user->name = $faker->name;
-            $user->email = $faker->email;
-            $user->password = $faker->password;
-            $user->save();
-        }
-       
+        // array seeder
 
-    }
+        DB::table('users')->insert(
+           [
+                [
+                    'name'=>'User1',
+                    'email'=> 'user1@gmail.com',
+                    'password'=> 12345678,
+                    'created_at'=> Carbon::now(),
+                    'updated_at'=> Carbon::now(),
+                ],
+                [
+                    'name'=>'User2',
+                    'email'=> 'user2@gmail.com',
+                    'password'=> 12345678,
+                    'created_at'=> Carbon::now(),
+                    'updated_at'=> Carbon::now(),
+                ],
+                [
+                    'name'=>'User3',
+                    'email'=> 'user3@gmail.com',
+                    'password'=> 12345678,
+                    'created_at'=> Carbon::now(),
+                    'updated_at'=> Carbon::now(),
+                ],
+           ]
+
+
+            );
+
+        //  seeder one
+
+        // $user = new User;
+        // $user->name = "User2";
+        // $user->email = "user2@gmail.com";
+        // $user->password = "12345678";
+        // $user->save();
+
+        // $faker = Faker::create();       // Faker create random data for insert on DB table;
+        // for( $i=1; $i <=5; $i++){
+    
+        // }
+
+        }
 }
