@@ -41,4 +41,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+        // One to one rls
+
+    public function phone(){
+        return $this->hasOne(Phone::class);
+    }
+
+
 }

@@ -1,18 +1,21 @@
 <?php
 
+use App\Models\Phone;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
-    return view('welcome');
+
+    $phone = User::find(13);        // it's show user data
+    $phone = User::find(15)->phone; // it's show which user uses which phone.
+    // return $phone;               // can uncomment it
+
+    $user = Phone::find(7);        // it's show Phone data
+    $user = Phone::find(7)->user; // it's show which Phone use which user.
+    // return $user;
+
+    
+
+    return view('welcome');         // 11 min.
 });
+  
