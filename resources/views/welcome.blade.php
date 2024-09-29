@@ -20,10 +20,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @foreach ( $users as $data)
+                            <tr>
+                                <td>{{ $data->name }}</td>
+                                <td>{{ $data->phone->name }}</td> 
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

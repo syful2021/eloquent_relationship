@@ -14,8 +14,11 @@ Route::get('/', function () {
     $user = Phone::find(7)->user; // it's show which Phone use which user.
     // return $user;
 
-    
 
-    return view('welcome');         // 11 min.
+                                    // To show the rls data on Table
+    $users = User::all();
+    // return $users;
+
+    return view('welcome', compact('users'));
 });
   
