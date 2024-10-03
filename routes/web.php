@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Catagory;
 use App\Models\User;
 use App\Models\Phone;
 use App\Models\Comment;
@@ -42,8 +43,9 @@ Route::get('/', function () {
     // Many To Many
 
     $post = Post::with('catagories')->get();
+    $categories = Catagory::with('posts')->get();         // Post model e posts method add kra hoy.
     // return $post;
-    return view('welcome', compact('post'));
+    return view('welcome', compact('categories'));
 
 
 });

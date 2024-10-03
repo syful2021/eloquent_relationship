@@ -15,20 +15,20 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
+                            <th>Category</th>
                             <th>Post title</th>
-                            <th>Comments</th>
                         </tr>
                     </thead>
                     <tbody>
 
                                                 {{-- ekhane multiple data asteche tai foreach loop er betore arekta foreach loop calano hoy. every post kon kon catagory'r under e ta clearly show krbe. --}}
 
-                        @foreach ( $post as $data)
+                        @foreach ( $categories as $data)
                             <tr>
-                                <td class="align-center">{{ $data->title }}</td>
+                                <td class="align-center">{{ $data->name }}</td>
                                 <td>
-                                    @foreach ($data->catagories as $cata)
-                                        {{ $cata->name }}
+                                    @foreach ($data->posts as $post)
+                                        {{ $post->title }}
                                     @endforeach
                                 </td>
                             </tr>
