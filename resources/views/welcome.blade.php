@@ -15,15 +15,21 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Phone</th>
+                            <th>Comments</th>
+                            <th>Post title</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ( $users as $data)
+                        @foreach ( $comments as $data)
                             <tr>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->phone->name }}</td> 
+                                <td class="align-center">{{ $data->message }}</td>
+                                <td>{{ $data->post->title }}</td>
+                                
+                                {{-- <td>
+                                    @foreach ($data->comments as $comment)
+                                        {{ $comment->message }}
+                                    @endforeach
+                                </td>  --}}
                             </tr>
                         @endforeach
                     </tbody>
