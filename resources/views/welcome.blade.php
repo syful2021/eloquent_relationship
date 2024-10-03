@@ -15,21 +15,22 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Comments</th>
                             <th>Post title</th>
+                            <th>Comments</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ( $comments as $data)
+
+                                                {{-- ekhane multiple data asteche tai foreach loop er betore arekta foreach loop calano hoy. every post kon kon catagory'r under e ta clearly show krbe. --}}
+
+                        @foreach ( $post as $data)
                             <tr>
-                                <td class="align-center">{{ $data->message }}</td>
-                                <td>{{ $data->post->title }}</td>
-                                
-                                {{-- <td>
-                                    @foreach ($data->comments as $comment)
-                                        {{ $comment->message }}
+                                <td class="align-center">{{ $data->title }}</td>
+                                <td>
+                                    @foreach ($data->catagories as $cata)
+                                        {{ $cata->name }}
                                     @endforeach
-                                </td>  --}}
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

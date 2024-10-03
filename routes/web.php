@@ -37,5 +37,13 @@ Route::get('/', function () {
     
 
     // return view('welcome', compact('post'));
-    return view('welcome', compact('comments'));
+    // return view('welcome', compact('comments'));
+
+    // Many To Many
+
+    $post = Post::with('catagories')->get();
+    // return $post;
+    return view('welcome', compact('post'));
+
+
 });
